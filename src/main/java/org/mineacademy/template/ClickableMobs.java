@@ -35,17 +35,17 @@ public final class ClickableMobs extends SimplePlugin {
 	/* ------------------------------------------------------------------------------- */
 
 	/**
-	 * An event that checks if the right clicked entity is Glowing, and makes an explosion.
-	 * You can write your events to your main class without having to register a listener.
+	 * An event that checks if the right clicked entity is Glowing, and make it glowing.
+	 * If it is glowig it will set the entity on fire.
 	 *
 	 * @param event
 	 */
 	@EventHandler
 	public void onRightClick(PlayerInteractEntityEvent event) {
 
-		if (event.getRightClicked().isGlowing())
-			event.getRightClicked().setFireTicks(60);
-		else {
+		if (event.getRightClicked().isGlowing()) {
+			event.getRightClicked().setFireTicks(seconds * 15);
+		} else {
 			event.getRightClicked().setGlowing(true);
 		}
 	}
